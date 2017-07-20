@@ -249,7 +249,7 @@
 
   foreach my $key (keys %updates)
   {
-    my $cmd = sprintf("tar -xjf %s -C $dir/%s", $updates{$key}, $install{$key});
+    my $cmd = sprintf("tar --no-same-owner -xjf %s -C $dir/%s", $updates{$key}, $install{$key});
     printf("Extracting %s...", $updates{$key});
     system($cmd) and die "Failed\n";
     printf("OK!\n");
